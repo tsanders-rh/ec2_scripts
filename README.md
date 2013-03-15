@@ -37,6 +37,9 @@ Examples
 
  - launch_Spacewalk_Candlepin.py
   * Provisions a postgres backed Spacewalk with Candlepin Installed
+ 
+ - launch_Pulp.py
+  * Provisions Pulp v2 Beta 
 
 
 Recommend Usage:
@@ -98,4 +101,3 @@ To Launch Spacewalk & Candlepin
 <br/>Spacewalk 1.8.6 install completed on: ec2-107-22-56-64.compute-1.amazonaws.com in 1344.49916697 seconds
 
 
->>>>>>> Initial commit

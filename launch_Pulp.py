@@ -19,16 +19,19 @@ if __name__ == "__main__":
     # open firewall
     #
     print "Updating firewall rules"
-    scp_to_command(hostname, ssh_user, ssh_key, "./etc/sysconfig/iptables", "/etc/sysconfig/iptables")
-    ssh_command(hostname, ssh_user, ssh_key, "service iptables restart")
+    ssh_command(hostname, ssh_user, ssh_key, "mkdir -p ~/tmp")
+    scp_to_command(hostname, ssh_user, ssh_key, "./etc/sysconfig/iptables", "~/tmp/")
+    ssh_command(hostname, ssh_user, ssh_key, "sudo cp ~/tmp/iptables /etc/sysconfig/iptables")
+
+    ssh_command(hostname, ssh_user, ssh_key, "sudo /sbin/service iptables restart")
     #
     # Run install script
     #
     print "Running install script for Pulp"
     scp_to_command(hostname, ssh_user, ssh_key, "./scripts/functions.sh", "~")
     scp_to_command(hostname, ssh_user, ssh_key, "./scripts/install_pulp.sh", "~")
-    ssh_command(hostname, ssh_user, ssh_key, "chmod +x ./install_pulp.sh")
-    ssh_command(hostname, ssh_user, ssh_key, "time ./install_pulp.sh &> ./pulp_rpm_setup.log ")
+    ssh_command(hostname, ssh_user, ssh_key, "sudo chmod +x ./install_pulp.sh")
+    ssh_command(hostname, ssh_user, ssh_key, "time sudo ./install_pulp.sh &> ./pulp_rpm_setup.log ")
     #
     # Update EC2 tag with version of RCS installed
     #

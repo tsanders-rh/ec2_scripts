@@ -145,7 +145,7 @@ def resize_root_volume(instance, ssh_user, ssh_key, dev="/dev/xvde1"):
     # we are working with, even though our device mapping 
     # specifies them as '/dev/sda1/'
     print "Resizing %s on %s" % (dev, instance.dns_name)
-    status, out, err = ssh_command(instance.dns_name, ssh_user, ssh_key, "resize2fs %s" % (dev))
+    status, out, err = ssh_command(instance.dns_name, ssh_user, ssh_key, "sudo /sbin/resize2fs %s" % (dev))
     return status
 
 

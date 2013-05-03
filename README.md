@@ -14,6 +14,7 @@ Launch scripts for following configurations:
 
  * Candlepin
  * Pulp v2.1 beta builds
+ * Katello nightly builds
  * Spacewalk
  * Splice
   * Report Server
@@ -40,6 +41,9 @@ Examples
  
  - launch_Pulp.py
   * Provisions Pulp v2 Beta 
+
+ - launch_Katello.py
+  * Provisions Katello Nightly Build
 
 
 Recommend Usage:
